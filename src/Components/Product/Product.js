@@ -1,11 +1,19 @@
 import './Product.css'
+import { useDispatch } from 'react-redux';
 
-const Product = ( { product, onAddToCart } ) => {
+const Product = ( { product } ) => {
+
+    const dispatch = useDispatch();
+
+    const addToCart = (product) => {
+        dispatch({ type: 'ADD_PRODUCT', payload: product});
+    }
+
     return (
         <div className='product'>
             <span>{product.name}</span>
             <span>€{product.price}</span>
-            <span className='button' onClick={() => onAddToCart(product) }>Toevoegen aan winkelwagentje</span>
+            <span className='button' onClick={() => addToCart(product) }>Toevoegen aan winkelwagentje</span>
         </div>
     )
 }

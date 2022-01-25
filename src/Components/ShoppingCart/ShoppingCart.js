@@ -1,9 +1,12 @@
 import { useState } from 'react'
+import { useSelector } from 'react-redux';
 import './ShoppingCart.css'
 
-const ShoppingCart = ( { shoppingCart } ) => {
+const ShoppingCart = () => {
 
     const [ showDetails, setShowDetails ] = useState(false);
+
+    const shoppingCart = useSelector(state => state.shoppingCart);
 
     const toggleDetails = () => {
         setShowDetails(!showDetails);
