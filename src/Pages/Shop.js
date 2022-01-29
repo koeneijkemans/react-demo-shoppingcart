@@ -1,15 +1,12 @@
 import ShoppingCart from "../Components/ShoppingCart/ShoppingCart"
 import Product from "../Components/Product/Product"
-import { useState } from "react"
 import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom';
 import './Shop.css'
-import AddProduct from "./AddProduct"
 
 const Shop = () => {
 
     const availableProducts = useSelector(state => state.products)
-
-    const [ showAddProduct, setShowAddProduct ] = useState(false);
 
     return (
         <div className='shop'>
@@ -22,8 +19,7 @@ const Shop = () => {
             }
             </div>
 
-            <a href="#" onClick={() => setShowAddProduct(!showAddProduct)}>Voeg product toe</a>
-            { showAddProduct && <AddProduct /> }
+            <Link to="inventory/add">Voeg product toe</Link>
         </div>
     )
 }

@@ -1,5 +1,6 @@
 import './Product.css'
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const Product = ( { product } ) => {
 
@@ -13,6 +14,7 @@ const Product = ( { product } ) => {
         <div className='product'>
             <span>{product.name}</span>
             <span>€{product.price}</span>
+            <Link to={"inventory/edit/" + product.id}>Pas aan</Link>
             <span className='button' onClick={() => addToCart(product) }>Toevoegen aan winkelwagentje</span>
         </div>
     )

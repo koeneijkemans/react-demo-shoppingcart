@@ -10,6 +10,8 @@ const productsReducer = (state = initialProducts, action) => {
     switch (action.type){
         case 'INVENTORY/ADD_PRODUCT':
             return [ ...state, { ...action.payload, id: state.length + 1 } ];
+        case 'INVENTORY/EDIT_PRODUCT':
+            return state.map(p =>  p.id == action.payload.id ? action.payload : p);
         default:
             return state;
     }
