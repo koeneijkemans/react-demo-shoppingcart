@@ -2,10 +2,11 @@ import ShoppingCart from "../Components/ShoppingCart/ShoppingCart"
 import Product from "../Components/Product/Product"
 import { useState } from 'react'
 import './Shop.css'
+import AddProduct from "./AddProduct"
 
 const Shop = () => {
 
-    const [availableProducts] = useState([
+    const [ availableProducts, setAvailableProducts ] = useState([
         { id: 1, name: "Bitcoin", price: 40000 },
         { id: 2, name: "Auto blauw", price: 10000 },
         { id: 3, name: "Mok met kekke foto", price: 12.5 },
@@ -13,10 +14,16 @@ const Shop = () => {
         { id: 5, name: "Laatste aflevering van BOOS", price: 0 },
       ])
       
-    const [shoppingCart, setShoppingCart] = useState([])
+    const [ shoppingCart, setShoppingCart ] = useState([])
+
+    const [ showAddProduct, setShowAddProduct ] = useState(false);
     
     const addToCart = (product) => {
         setShoppingCart([...shoppingCart, product])
+    }
+
+    const addToInventory = (product) => {
+        setAvailableProducts([...availableProducts, {...product, id: availableProducts.length + 1}]);
     }
 
     return (
@@ -29,6 +36,9 @@ const Shop = () => {
                 availableProducts.map((p) => <Product key={'product_' + p.id} product={p} onAddToCart={addToCart} />)
             }
             </div>
+
+            <a href="#" onClick={() => setShowAddProduct(!showAddProduct)}>Voeg product toe</a>
+            { showAddProduct && <AddProduct addProductToInventory={addToInventory} /> }
         </div>
     )
 }

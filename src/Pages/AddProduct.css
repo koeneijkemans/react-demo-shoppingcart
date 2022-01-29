@@ -1,0 +1,16 @@
+.addProduct-form{
+    display: flex;
+    flex-direction: column;
+    width: 240px;
+    align-items: flex-end;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.addProduct-form label {
+    margin-right: 5px;
+}
+
+.addProduct-form input {
+    margin: 2px 0;
+}
