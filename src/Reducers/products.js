@@ -8,6 +8,8 @@ const initialProducts = [
 
 const productsReducer = (state = initialProducts, action) => {
     switch (action.type){
+        case 'INVENTORY/ADD_PRODUCT':
+            return [ ...state, { ...action.payload, id: state.length + 1 } ];
         default:
             return state;
     }

@@ -6,7 +6,7 @@ const Product = ( { product } ) => {
     const dispatch = useDispatch();
 
     const addToCart = (product) => {
-        dispatch({ type: 'ADD_PRODUCT', payload: product});
+        dispatch({ type: 'CART/ADD_PRODUCT', payload: product});
     }
 
     return (
