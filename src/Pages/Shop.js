@@ -1,8 +1,8 @@
-import ShoppingCart from "../Components/ShoppingCart/ShoppingCart"
-import Product from "../Components/Product/Product"
-import { useSelector } from 'react-redux'
+import ShoppingCart from "../Components/ShoppingCart/ShoppingCart";
+import Product from "../Components/Product/Product";
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import './Shop.css'
+import './Shop.css';
 
 const Shop = () => {
 
